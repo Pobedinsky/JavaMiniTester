@@ -11,12 +11,7 @@ public class FunctionTester<T, R> {
         this.expectedResults = expectedResults;
         this.functionToTest = functionToTest;
     }
-
-    public FunctionTester(List<T> inputs, List<R> expectedResults, CustomFunction<T, R> customFunction) {
-        this.inputs = inputs;
-        this.expectedResults = expectedResults;
-        this.functionToTest = customFunction::apply;
-    }
+    
 
     public void testFunction() {
         for (int i = 0; i < inputs.size(); i++) {
@@ -31,9 +26,4 @@ public class FunctionTester<T, R> {
             }
         }
     }
-}
-
-@FunctionalInterface
-interface CustomFunction<T, R> {
-    R apply(T input);
 }
